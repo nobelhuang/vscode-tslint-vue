@@ -466,7 +466,9 @@ async function doValidate(conn: server.IConnection, library: any, document: serv
 
     let contents = document.getText();
 
-    if (document.languageId === 'vue') contents = vueParser.parse(contents, 'script', { lang: ['ts', 'tsx', 'js', 'jsx'] });
+    if (document.languageId === 'vue') {
+        contents = vueParser.parse(contents, 'script', { lang: ['ts', 'tsx', 'js', 'jsx'] });
+    }
 
     let configFile = settings.configFile || null;
     let configuration: Configuration | undefined;
@@ -519,6 +521,9 @@ async function doValidate(conn: server.IConnection, library: any, document: serv
                 tslint = new linter(options, program);
             } else {
                 tslint = new linter(options);
+                if (isVue(fsPath)) {
+                    fsPath += '.tsx';
+                }
             }
 
             tslint.lint(fsPath, contents, configuration.linterConfiguration);
@@ -570,7 +575,7 @@ function createProgram (updatedFileName: string, updatedContents: string, oldPro
         else {
             return realGetSourceFile(fileName, languageVersion, onError);
         }
-    }
+    };
 
     host.resolveModuleNames = function (moduleNames, containingFile) {
         const resolvedModules: ts.ResolvedModule[] = [];
@@ -588,13 +593,13 @@ function createProgram (updatedFileName: string, updatedContents: string, oldPro
                 if (isVue(moduleName)) {
                     resolvedModules.push({
                         resolvedFileName: absolutePath,
-                        extension: '.ts'
+                        extension: '.tsx'
                     } as ts.ResolvedModuleFull);
                 } else {
                     resolvedModules.push({
                         // If the file does exist, return an empty string (because we assume user has provided a ".d.ts" file for it).
                         resolvedFileName: host.fileExists(absolutePath) ? '' : absolutePath,
-                        extension: '.ts'
+                        extension: '.tsx'
                     } as ts.ResolvedModuleFull);
                 }
             }
