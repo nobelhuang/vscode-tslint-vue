@@ -2,6 +2,8 @@
 
 ![Marketplace Version](http://vsmarketplacebadge.apphb.com/version/prograhammer.tslint-vue.svg "Current Version") ![Market Place Installs](http://vsmarketplacebadge.apphb.com/installs/prograhammer.tslint-vue.svg "Number of Installs")
 
+> A fork from [vscode-tslint-vue](https://github.com/prograhammer/vscode-tslint-vue) with additional flavor that will force the linter to always process the TS/TSX section of Vue file in TSX mode, no matter `lang="ts"` or `lang="tsx"`.
+
 [VSCode extension](https://marketplace.visualstudio.com/items?itemName=prograhammer.tslint-vue) for [tslint](https://github.com/palantir/tslint) with added support for .vue (single file component) files and compiler/typechecker level linting.
 
 ![Important](vscode-tslint-vue2.gif "vscode-tslint-vue screencapture")

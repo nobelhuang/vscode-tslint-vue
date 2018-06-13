@@ -1,11 +1,11 @@
 {
-    "name": "tslint-vue",
-    "displayName": "TSLint Vue",
-    "description": "TSLint for Vue.js",
-    "version": "1.5.6",
+    "name": "tslint-vue-tsx",
+    "displayName": "TSLint Vue-TSX",
+    "description": "TSLint for Vue.js with TSX",
+    "version": "1.0.0",
     "author": "Microsoft Corporation",
     "license": "MIT",
-    "publisher": "prograhammer",
+    "publisher": "nobelhuang",
     "icon": "TSLintVue_icon.png",
     "galleryBanner": {
         "color": "#5c2d91",
@@ -13,17 +13,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/prograhammer/vscode-tslint-vue.git"
+        "url": "https://github.com/nobelhuang/vscode-tslint-vue-tsx.git"
     },
     "bugs": {
-        "url": "https://github.com/prograhammer/vscode-tslint-vue/issues"
+        "url": "https://github.com/nobelhuang/vscode-tslint-vue-tsx/issues"
     },
     "categories": [
         "Languages",
         "Linters"
     ],
     "engines": {
-        "vscode": "^1.16.0"
+        "vscode": "^1.24.0"
     },
     "activationEvents": [
         "onLanguage:typescript",
